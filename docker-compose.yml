@@ -1,0 +1,52 @@
+version: '3'
+services:
+  db:
+    container_name: flowrms_db
+    image: mysql:8.0.27
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: unless-stopped
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=wordpress
+      - MYSQL_USER=wordpress
+      - MYSQL_PASSWORD=wordpress
+    ports:
+      - "33062:3306"
+    networks:
+      - wpsite
+  phpmyadmin:
+    container_name: flowrms_phpmyadmin
+    image: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 8081:80
+    environment:
+      PMA_HOST: db
+      MYSQL_ROOT_PASSWORD: password
+    networks:
+      - wpsite
+  wordpress:
+    container_name: flowrms_wordpress
+    image: wordpress:latest
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+    ports:
+      - "8001:80"
+    restart: unless-stopped
+    environment:
+      WORDPRESS_DEBUG: 1
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: wordpress
+      WORDPRESS_DB_PASSWORD: wordpress
+      WORDPRESS_TABLE_PREFIX: wp_dc_
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEBUG', true);
+        define('WP_DEBUG_DISPLAY', false);
+    working_dir: /var/www/html
+    networks:
+      - wpsite
+networks:
+  wpsite:
+volumes:
+  db_data:

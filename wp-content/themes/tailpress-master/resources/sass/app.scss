@@ -1,0 +1,30 @@
+// Load Vendor
+@import "vendor/smooth-scrool.scss";
+
+// Load Fonts
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+@import url('https://css.gg/arrow-right.css');
+@import "abstracts/_font-face.scss";
+
+// Load Abstracts
+@import "abstracts/_variables.scss";
+
+// Load Vendors
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+// Load Base Styles
+@import "base/_typography.scss";
+
+// Load Layout Styles
+@import "layout/_cursor.scss";
+@import "layout/_button.scss";
+@import "layout/_header.scss";
+@import "layout/_navigation.scss";
+@import "layout/_footer.scss";
+@import "layout/_forms.scss";
+
+// Load Pages Styles
+@import "pages/_home.scss";
+@import "pages/_contact.scss";

@@ -1,0 +1,111 @@
+.shapes{
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  display: none;
+  .shape{
+    will-change: transform,opacity;
+    position: absolute;
+    border-radius: 50%;
+    visibility: hidden;
+    opacity: 0;
+  }
+  .shape-1{
+    background: #005ffe;
+    width: 650px;
+    height: 650px;
+    margin: -325px 0 0 -325px;
+  }
+  .shape-2{
+    background: #ffe5e3;
+    width: 440px;
+    height: 440px;
+    margin: -220px 0 0 -220px;
+  }
+  .shape-3{
+    background: #ffce57;
+    width: 270px;
+    height: 270px;
+    margin: -135px 0 0 -135px;
+  }
+}
+
+.shapes.active{
+  display: block;
+  .shape{
+    will-change: transform,opacity;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.carousel-mouse-shape{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  display: none;
+  z-index: 999999;
+  .carousel-mouse{
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: var(--arrow-btn-bg-color);
+    border-radius: 100%;
+    display: flex;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    will-change: transform,opacity;
+    margin: -150px 0 0 -150px;
+    text-align: center;
+    scale: 0.1;
+  }
+}
+.carousel-mouse-shape.active{
+  display: block;
+  .carousel-mouse{
+    will-change: transform,opacity;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+.insights-bg{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  pointer-events: none;
+  will-change: transform;
+  display: none;
+  z-index: -1;
+  .insight-img{
+    position: absolute;
+    top: -70px;
+    left: 30px;
+    overflow: hidden;
+    border-radius: 1rem;
+    width: 9.25rem;
+    height: 12.5rem;
+    will-change: transform,opacity;
+    background: #4F800D;
+    opacity: 0;
+    object-fit: cover;
+  }
+}
+
+.insights-bg.active{
+  display: block;
+  .insight-img{
+    opacity: 0.8;
+  }
+}
